@@ -1,3 +1,4 @@
+from random import gauss
 import PySimpleGUI as sg
 
 layout = [
@@ -15,3 +16,12 @@ while True:
     event, values = window.read()
     if event == sg.WIN_CLOSED:
         break
+    elif event == 'login':
+        usuario_correto = 'gss'
+        senha_correta = '1234'
+        usuario = values['usuario']
+        senha = values['senha']
+        if senha == senha_correta and usuario == usuario_correto:
+            window['mensagem'].update('Login feito com sucesso')
+        else:
+            window['mensagem'].update('Usuário ou senha incorreto')
